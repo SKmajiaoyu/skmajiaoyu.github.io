@@ -1,2 +1,2 @@
-# skmajiaoyu.github.io
+# skmjy.xyz
 qwq
