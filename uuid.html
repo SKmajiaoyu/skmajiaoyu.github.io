@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<head>
+   
+
+    <title>uuid生成</title>
+    <noscript>
+		你的浏览器当前不支持 JavaScript。如要享受本网站服务，你需要在浏览器设置中启用手机的 JavaScript 支持。
+		<meta http-equiv="refresh" content="3;url=http://baidu.com" />
+	</noscript>
+
+    <link type="text/css" rel="stylesheet" href="gallery_temp.css" /> 
+    <script src="/yuetv/cdn/sea.js"></script>
+
+
+<p id="demo">
+点击下面获取uuid
+</p>
+<p id="demoo">
+点击下面获取uuid
+</p>
+
+
+
+<button type="button" onclick="myFunction()">点击这里</button>
+
+<script>
+function myFunction()
+{
+x=document.getElementById("demo");  // 找到元素
+x.innerHTML=uuid();    // 改变内容
+x=document.getElementById("demoo");  // 找到元素
+x.innerHTML=uuid();    // 改变内容
+}
+
+function uuid() {
+  var s = [];
+  var hexDigits = "0123456789abcdef";
+  for (var i = 0; i < 36; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+  }
+  s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+  s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+  s[8] = s[13] = s[18] = s[23] = "-";
+ 
+  var uuid = s.join("");
+  return uuid;
+}
+</script>
+
+</head>
+<body>
+    <!-- HTML 正文 -->
+</body>
+</html>
